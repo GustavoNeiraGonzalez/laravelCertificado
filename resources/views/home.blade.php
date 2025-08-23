@@ -17,7 +17,7 @@
     @endsection
 
     @section('content')
-
+    la fecha de hoy es: @FormatearFecha(now())
     <p>Este contenido se mostrará en la pagina principal</p>
 
     @if ($edad >= 18)
