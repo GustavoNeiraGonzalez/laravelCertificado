@@ -2,7 +2,7 @@
 
 @section('content')
     mensaje que se muestra en la pagina
-    <div class="container w-25 border p-4 mt-4">
+    <div class="container w-50 border p-4 mt-4">
 
         <form action="{{route('tareas')}}" method="POST">
             <!-- esto te protege contra los ataques CSRF AL INCLUIRLO EN LOS FORMULARIOS
@@ -28,7 +28,12 @@
 
         <ul class="list-group">
             @foreach ($tareas as $tarea)
-                <li class="list-group-item">{{$tarea->title}}</li>
+                <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                    <a>{{$tarea->title}}</a>
+                    <div>
+                        <button type="submit" class="btn-danger btn-sm rounded-pill">eliminar</button>
+                    </div>
+                </li>
 
             @endforeach
 
