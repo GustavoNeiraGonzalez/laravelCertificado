@@ -19,4 +19,9 @@ class TareasController extends Controller
         ->route('tareas')
         ->with('success','La tarea ha sido creada exitosamente');
     }
+
+    public function index(){
+        $tareas = Tarea::all();
+        return view('index',['tareas'=>$tareas]);
+    }
 }

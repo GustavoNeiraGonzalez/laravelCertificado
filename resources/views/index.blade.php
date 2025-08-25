@@ -6,8 +6,18 @@
 
         <form action="{{route('tareas')}}" method="POST">
             <!-- esto te protege contra los ataques CSRF AL INCLUIRLO EN LOS FORMULARIOS
-            verifica si la solicitud es del sitio web y no de terceros-->
+            verifica si la solicitud es del sitio web y no de tercer-->
             @csrf
+            <!-- aqui mostrara si ha funcionado o ha habido algun error-->
+            @if (session('success'))
+                <h5 class="alert alert-success" role="alert">{{session('success')}}</h5>
+            @endif
+
+            @error('title')
+                <h5 class="alert alert-danger" role="alert">{{$message}}</h5>
+            @enderror
+
+
             <div class="mb-3">
                 <label for="title" class="form-label">Nombre de la tarea</label>
                 <input type="text" class="form-control" name="title">
@@ -15,5 +25,13 @@
             </div>
             <button type="submit" class="btn btn-primary">Crear nueva tarea</button>
         </form>
+
+        <ul class="list-group">
+            @foreach ($tareas as $tarea)
+                <li class="list-group-item">{{$tarea->title}}</li>
+
+            @endforeach
+
+        </ul>
     </div>
 @endsection

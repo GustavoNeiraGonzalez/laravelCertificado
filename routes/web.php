@@ -7,9 +7,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/tareas', function () {
-    return view('index');
-});
+Route::get('/tareas',[TareasController::class, 'index'])->name('tareas');
+
+Route::post('/tareas',[TareasController::class, 'store'])->name('tareas');
 
 Route::get('/inicio', function () {
     return view('home',
@@ -23,4 +23,3 @@ Route::get('/holamundo', function () {
     return view('holamundo');
 });
 
-Route::post('/tareas',[TareasController::class, 'store'])->name('tareas');
