@@ -7,7 +7,7 @@ use App\Models\Tarea;
 class TareasController extends Controller
 {
     //
-    public function store(){
+    public function store(Request $request){
         $request->validate([
             "title"=>"required|min:4"
         ]);
