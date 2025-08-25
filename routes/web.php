@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TareasController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -21,3 +22,5 @@ Route::get('/inicio', function () {
 Route::get('/holamundo', function () {
     return view('holamundo');
 });
+
+Route::post('/tareas',[TareasController::class, 'store'])->name('tareas');
