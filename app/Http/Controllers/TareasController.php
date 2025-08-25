@@ -37,4 +37,12 @@ class TareasController extends Controller
         $tareas = Tarea::all();
         return view('index',['tareas'=>$tareas]);
     }
+
+    public function destroy($id){
+        $tarea = Tarea::find($id);
+        $tarea->delete();
+        return redirect()
+        ->route('tareas')
+        ->with('success','La tarea ha sido eliminada');
+    }
 }

@@ -9,9 +9,11 @@ Route::get('/', function () {
 
 Route::get('/tareas',[TareasController::class, 'index'])->name('tareas');
 Route::post('/tareas',[TareasController::class, 'store'])->name('tareas');
+
 Route::get('/tareas/{id}', [TareasController::class, 'show'])->name('tareas-editar');/*aqui estamos pidiendo el id para poder usarlo despues en update*/
 Route::patch('/tareas/{id}', [TareasController::class, 'update']);/*ya que necesitamos proporcionar el id en la solicitud dentro del html (blade) */
 
+Route::delete('/tareas/{id}', [TareasController::class, 'destroy'])->name('tareas-eliminar');
 
 Route::get('/inicio', function () {
     return view('home',

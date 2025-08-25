@@ -29,11 +29,15 @@
         <ul class="list-group">
             @foreach ($tareas as $tarea)
                 <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                    <a href="{{route('tareas-editar', ['id' => $tarea->id])}}">{{$tarea->title}}</a>
+                    <a href="{{route('tareas-editar', ['id' => $tarea->id])}}">{{$tarea->title}}</a> <!--aqui para ir a editar tarea-->
                     <div>
-                        <button type="submit" class="btn-danger btn-sm rounded-pill"
-                        Style= "color:inherit; text-decoration:none "
-                        >eliminar</button>
+                        <form action="{{route('tareas-eliminar', ['id' => $tarea->id])}}" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit" class="btn-danger btn-sm rounded-pill" Style= "color:inherit; text-decoration:none"
+                            >eliminar
+                            </button>
+                        </form>
                     </div>
                 </li>
 
