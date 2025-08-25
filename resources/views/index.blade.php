@@ -29,9 +29,11 @@
         <ul class="list-group">
             @foreach ($tareas as $tarea)
                 <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                    <a>{{$tarea->title}}</a>
+                    <a href="{{route('tareas-editar', ['id' => $tarea->id])}}">{{$tarea->title}}</a>
                     <div>
-                        <button type="submit" class="btn-danger btn-sm rounded-pill">eliminar</button>
+                        <button type="submit" class="btn-danger btn-sm rounded-pill"
+                        Style= "color:inherit; text-decoration:none "
+                        >eliminar</button>
                     </div>
                 </li>
 
