@@ -1,7 +1,6 @@
 @extends('layouts/tareas')
 
 @section('content')
-    mensaje que se muestra en la pagina
     <div class="container w-50 border p-4 mt-4">
 
         <form action="{{route('tareas')}}" method="POST">

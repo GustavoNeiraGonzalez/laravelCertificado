@@ -26,4 +26,13 @@ Route::get('/inicio', function () {
 Route::get('/holamundo', function () {
     return view('holamundo');
 });
+Route::get('/biografia', function() {
+    return view('bio');
+});
+Route::get('/categorias', function() {
+    return view('categorias');
+});
+
+
+
 
